@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700;900&family=Roboto:wght@300;400&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+  background-color: #666;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+input {
+  outline: none;
+}
+
+.main {
+  margin: 2em;
+}
+
+/* Flex */
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.flex-beet {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.center {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Margin */
+.mr2 {
+  margin-right: 2em;
+}
+
+.ml2 {
+  margin-left: 2em;
+}
+
+.mt1 {
+  margin-top: 1em;
+}
+
+.mrl2 {
+  margin: 0 2em;
+}
+
+/* Color */
+.bkg-primary {
+  background-color: #004cbf76;
+}
+
+.bkg-dark {
+  background-color: #666;
+}
+
+/* Font-Size */
+.fs-text {
+  font-size: 1.5em;
+}
+
+.second-title {
+  font-size: 2em;
+}
+
+.btn {
+  border: none;
+  border-radius: 1em;
+  padding: 1em;
+}

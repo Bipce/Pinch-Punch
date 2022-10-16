@@ -1,0 +1,11 @@
+.search-sort {
+  width: 100%;
+}
+
+.search-sort .search {
+  width: 100%;
+}
+
+#search__movie {
+  margin-right: 1em;
+}
