@@ -7,10 +7,9 @@ import { IMovie } from "../models/IMovie";
 
 export const getMovies = async (): Promise<IMovie[]> => {
   const params: IGetMoviesParams = {
-    with_original_language: "fr",
-    language: "fr",
+    with_original_language: "en",
+    include_video: true,
   };
-
   const res = await axios.get<IGetMoviesResponse>("/discover/movie", { params });
   return res.data.results;
 };

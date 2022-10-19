@@ -5,4 +5,6 @@ export interface IGetMoviesResponse {
   results: IMovie[];
   totalPages: number;
   totalResults: number;
+  poster_path: string;
+  genre_ids: number;
 }
