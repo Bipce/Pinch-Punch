@@ -1,0 +1,45 @@
+.genre-box {
+  margin-bottom: 7em;
+  border-bottom: 2px solid rgb(211, 210, 207);
+}
+
+.genre-box .second-title {
+  margin: 0 0 1em 1em;
+}
+
+.movies-box__movie {
+  width: 95%;
+  margin: 0 2em 2em;
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+.movies-box__arrow {
+  width: 4%;
+  align-self: center;
+}
+
+.image-box {
+  margin-right: 3em;
+}
+
+.image-box img {
+  width: 250px;
+  height: 350px;
+}
+
+.movie-title {
+  width: 225px;
+  font-size: 2em;
+  margin: 0.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slide {
+  background-color: transparent;
+  color: rgb(211, 210, 207);
+  border: none;
+  cursor: pointer;
+}

@@ -12,49 +12,5 @@
 }
 
 .search .button-icon {
-  /* color: rgb(211, 210, 207); */
   margin-left: -60px;
-}
-
-.genre-box {
-  margin-bottom: 7em;
-  border-bottom: 2px solid rgb(211, 210, 207);
-}
-
-.genre-box .second-title {
-  margin: 0 0 1em 1em;
-}
-
-.movies-box {
-  margin: 0 2em 2em;
-}
-
-.horizontal-scroll-wrapper {
-  overflow-y: auto;
-  overflow-x: scroll;
-}
-
-.image-box {
-  margin-right: 3em;
-}
-
-.image-box img {
-  width: 250px;
-  height: 350px;
-}
-
-.movie-title {
-  width: 225px;
-  font-size: 2em;
-  margin: 0.5em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.slide-arrow {
-  position: absolute;
-  align-self: center;
-  cursor: pointer;
-  right: 0;
 }
