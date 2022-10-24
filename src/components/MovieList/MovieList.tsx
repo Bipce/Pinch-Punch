@@ -9,31 +9,12 @@ import "./MovieList.css";
 
 const MovieList = () => {
   const [genres, setGenres] = useState<IGenre[]>();
-  // const [movies, setMovies] = useState<IMovie[]>();
-  // const [page, setPage] = useState(1);
 
   useEffect(() => {
     (async () => {
       setGenres(await getGenres());
     })();
   }, []);
-
-  // const loadMovies = async () => {
-  //   const res = await getMovies(page);
-
-  //   const tmp: IMovie[] = [...(movies || []), ...res];
-  //   tmp.concat(res);
-
-  //   setMovies(tmp);
-
-  //   if (page < 10) {
-  //     setPage(page + 1);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   loadMovies();
-  // }, [page]);
 
   return (
     <>

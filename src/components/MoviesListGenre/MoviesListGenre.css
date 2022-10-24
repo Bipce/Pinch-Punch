@@ -7,16 +7,28 @@
   margin: 0 0 1em 1em;
 }
 
+.movie-box {
+  height: 415px;
+}
+
 .movies-box__movie {
-  width: 95%;
-  margin: 0 2em 2em;
-  overflow: scroll;
+  overflow: hidden;
   white-space: nowrap;
 }
 
 .movies-box__arrow {
   width: 4%;
-  align-self: center;
+  height: 350px;
+  display: flex;
+  position: absolute;
+}
+
+.movies-box__right {
+  right: 0;
+}
+
+.movies-box__left {
+  left: 0.5;
 }
 
 .image-box {
