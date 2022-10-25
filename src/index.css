@@ -26,6 +26,10 @@ input {
   color: rgb(211, 210, 207);
 }
 
+img {
+  object-fit: cover;
+}
+
 .main {
   margin: 2em;
 }

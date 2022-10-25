@@ -1,0 +1,17 @@
+.moviesGenre-box {
+  margin: 4em 2em 0 2em;
+  flex-wrap: wrap;
+}
+
+.moviesGenre-box__link {
+  margin: 3em 0;
+}
+
+.moviesGenre-box__image {
+  width: 350px;
+  height: 500px;
+}
+
+.moviesGenre-box__title {
+  margin-bottom: 0;
+}

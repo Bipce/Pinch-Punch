@@ -1,25 +1,38 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MoviesGenre from "../components/MoviesGenre/MoviesGenre";
-import { IGenre } from "../models/IGenre";
 import { IMovie } from "../models/IMovie";
 import { getGenres, getMovies } from "../services/backend";
 
 const Genre = () => {
-  const [genre, setGenre] = useState<IGenre[]>();
-  // const [movies, setMovies] = useState<IMovie[]>();
+  const [movies, setMovies] = useState<IMovie[]>();
+  const [genreNotFound, setGenreNotFound] = useState(false);
 
-  let { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
-  console.log(id);
+  if (id == undefined) return null;
 
   useEffect(() => {
-    async () => {
-      setGenre(await getGenres());
-    };
+    (async () => {
+      const genres = await getGenres();
+
+      const genre = genres?.find((g) => g.id == parseInt(id));
+
+      if (genre) {
+        setMovies(await getMovies(parseInt(id)));
+      } else {
+        setGenreNotFound(true);
+      }
+    })();
   }, []);
 
-  return <MoviesGenre />;
+  if (genreNotFound) {
+    return <h1>Genre not found !</h1>;
+  }
+
+  if (!movies) return null;
+
+  return <MoviesGenre movies={movies} />;
 };
 
 export default Genre;

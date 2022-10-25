@@ -26,21 +26,13 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
   }, [movies]);
 
   useEffect(() => {
-    (async () => {
-      setMovies(await getMovies(genre.id));
-    })();
-  }, []);
-
-  useEffect(() => {
     if (slideElement.current != null) {
       setScrollMax(slideElement.current.scrollWidth - slideElement.current.clientWidth);
     }
   }, [slideElement.current, movies]);
 
   useEffect(() => {
-    (async () => {
-      loadNextMovies();
-    })();
+    loadNextMovies();
   }, [page]);
 
   const slide = (delta: number) => {
@@ -57,14 +49,12 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
     tmp.concat(res);
 
     setMovies(tmp);
-
-    setPage((prev) => prev);
   };
 
   return (
     <div className="">
       <div key={genre.id} className="genre-box ">
-        <Link to={`./genres/${genre.name}`}>
+        <Link to={`./genres/${genre.id}`}>
           <h2 className="second-title">{genre.name} :</h2>
         </Link>
 
