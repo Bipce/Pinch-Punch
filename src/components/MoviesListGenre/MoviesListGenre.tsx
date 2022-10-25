@@ -17,7 +17,7 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
   const [movies, setMovies] = useState<IMovie[] | null>(null);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollMax, setScrollMax] = useState(0);
-  const [nextPage, setNextPage] = useState(2);
+  const [page, setPage] = useState(1);
 
   const slideElement = useRef<HTMLDivElement>(null);
 
@@ -37,6 +37,12 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
     }
   }, [slideElement.current, movies]);
 
+  useEffect(() => {
+    (async () => {
+      loadNextMovies();
+    })();
+  }, [page]);
+
   const slide = (delta: number) => {
     slideElement.current?.scrollTo({
       behavior: "smooth",
@@ -45,14 +51,14 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
   };
 
   const loadNextMovies = async () => {
-    const res = await getMovies(genre.id, nextPage);
+    const res = await getMovies(genre.id, page);
 
     const tmp: IMovie[] = [...(movies || []), ...res];
     tmp.concat(res);
 
     setMovies(tmp);
 
-    setNextPage((prev) => prev + 1);
+    setPage((prev) => prev);
   };
 
   return (
@@ -95,7 +101,6 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
           <div
             className="movies-box__arrow movies-box__right"
             style={{
-              // visibility: scrollLeft >= scrollMax ? "collapse" : "visible",
               backgroundColor: scrollLeft >= scrollMax ? "transparent" : "rgba(102, 102, 102, 0.176)",
             }}
           >
@@ -103,7 +108,7 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
               className="slide"
               onClick={async () => {
                 if (scrollLeft >= scrollMax) {
-                  await loadNextMovies();
+                  setPage((prev) => prev + 1);
                 } else {
                   slide(1);
                 }
