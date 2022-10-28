@@ -1,41 +1,31 @@
 .genre-box {
-  margin-bottom: 7em;
-  border-bottom: 2px solid rgb(211, 210, 207);
+  height: 500px;
 }
 
-.genre-box .second-title {
+.genre-box__title {
   margin: 0 0 1em 1em;
+  font-size: 2em;
 }
 
-.movie-box {
-  height: 415px;
+.movies-box {
+  display: flex;
+  flex-direction: row;
+  margin: 0 2em;
+  height: 400px;
+  position: relative;
 }
 
-.movies-box__movie {
+.movies-box__movies {
+  display: flex;
   overflow: hidden;
   white-space: nowrap;
 }
 
-.movies-box__arrow {
-  width: 4%;
-  height: 350px;
-  display: flex;
-  position: absolute;
-}
-
-.movies-box__right {
-  right: 0;
-}
-
-.movies-box__left {
-  left: 0.5;
-}
-
-.image-box {
+.movies-box__movies-image {
   margin-right: 3em;
 }
 
-.image-box img {
+.movies-box__movies-image img {
   width: 250px;
   height: 350px;
 }
@@ -47,6 +37,24 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.movies-box__line {
+  border: 1px solid rgb(211, 210, 207);
+}
+
+.movies-box__arrow {
+  display: flex;
+  align-self: center;
+  position: absolute;
+}
+
+.movies-box__arrow-left {
+  left: 0;
+}
+
+.movies-box__arrow-right {
+  right: 0;
 }
 
 .slide {

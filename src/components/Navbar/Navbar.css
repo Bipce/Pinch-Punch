@@ -1,0 +1,33 @@
+.navbar-container {
+  background-color: #004cbf76;
+  height: 70px;
+}
+
+.navbar-info {
+  height: 100%;
+  margin: 0 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-bar {
+  width: 100%;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  margin-top: 4em;
+}
+
+#search-bar__input {
+  border-radius: 1em 0 0 1em;
+  background-color: #004cbf76;
+  font-size: 1.5em;
+}
+
+.search-bar__btn {
+  border-radius: 0 1em 1em 0;
+  background-color: #004cbf76;
+  color: rgb(211, 210, 207);
+}

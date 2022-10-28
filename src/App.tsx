@@ -7,14 +7,16 @@ import Genre from "./pages/Genre";
 
 const App = () => {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/genres/:id" element={<Genre />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <div className="container">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/genres/:id" element={<Genre />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </div>
   );
 };
 

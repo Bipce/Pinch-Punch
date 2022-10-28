@@ -1,16 +1,4 @@
-.search-sort {
-  width: 100%;
-  margin-top: 5em !important;
-}
-
-.search-sort .search {
-  width: 100%;
-}
-
-#search__movie {
-  margin-right: 1em;
-}
-
-.search .button-icon {
-  margin-left: -60px;
+.home-container {
+  overflow-y: auto;
+  height: calc(100vh - 165px - 50px);
 }

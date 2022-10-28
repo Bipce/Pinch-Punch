@@ -8,12 +8,13 @@ body {
   font-size: 62.5%;
   background: url("./assets/stars-bkg.jpg") no-repeat center center/cover fixed;
   color: rgb(211, 210, 207);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 a {
   text-decoration: none;
   color: rgb(211, 210, 207);
+  display: inline-block;
 }
 
 h1 {
@@ -30,12 +31,21 @@ img {
   object-fit: cover;
 }
 
-.main {
-  margin: 2em;
+.container {
+  height: 100vh;
+}
+
+/* Color */
+.bg-primary {
+  background-color: #004cbf76;
+}
+
+.bg-secondary {
+  background-color: #666;
 }
 
 /* Flex */
-.flex {
+/* .flex {
   display: flex;
 }
 
@@ -60,10 +70,10 @@ img {
   text-align: center;
   justify-content: center;
   align-items: center;
-}
+} */
 
 /* Margin */
-.m0 {
+/* .m0 {
   margin: 0;
 }
 
@@ -85,28 +95,27 @@ img {
 
 .mrl2 {
   margin: 0 2em;
-}
+} */
 
 /* Color */
-.bkg-primary {
+/* .bkg-primary {
   background-color: #004cbf76;
 }
 
 .bkg-dark {
   background-color: #666;
-}
+} */
 
 /* Font-Size */
-.fs-text {
+/* .fs-text {
   font-size: 1.5em;
 }
 
 .second-title {
   font-size: 2em;
-}
+} */
 
 .btn {
   border: none;
-  border-radius: 1em;
-  padding: 1em;
+  padding: 1.2em;
 }
