@@ -1,15 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { IGenre } from "../../models/IGenre";
 import { IMovie } from "../../models/IMovie";
 
 import "./MoviesGenre.css";
 
 interface IProps {
   movies: IMovie[];
-  page: number;
+  genre: IGenre;
 }
 
-const MoviesGenre: React.FC<IProps> = ({ movies, page }) => {
+const MoviesGenre: React.FC<IProps> = ({ movies, genre }) => {
+  console.log(genre);
+  console.log("test");
+
   const [scrollDown, setScrollDown] = useState(0);
 
   const slideElement = useRef<HTMLDivElement>(null);
@@ -18,7 +22,7 @@ const MoviesGenre: React.FC<IProps> = ({ movies, page }) => {
     if (slideElement.current != null) {
       setScrollDown(slideElement.current.scrollHeight - slideElement.current.clientHeight);
     }
-  }, [slideElement.current, movies]);
+  }, []);
 
   const slideDown = () => {
     document.body.scrollTo({
@@ -28,14 +32,15 @@ const MoviesGenre: React.FC<IProps> = ({ movies, page }) => {
   };
 
   return (
-    <div className="moviesGenre-box flex-row flex-beet" ref={slideElement} onScroll={(e) => console.log(e)}>
-      <button
+    <>
+      <h2 className="moviesGenre__title fz2">{genre.name}</h2>
+      {/* <button
         onClick={(e) => {
           slideDown();
         }}
       >
         Onclick
-      </button>
+      </button> */}
       {movies.map((movie) => {
         return (
           <Link to="./movie/:id" key={movie.id} className="moviesGenre-box__link">
@@ -44,7 +49,7 @@ const MoviesGenre: React.FC<IProps> = ({ movies, page }) => {
           </Link>
         );
       })}
-    </div>
+    </>
   );
 };
 

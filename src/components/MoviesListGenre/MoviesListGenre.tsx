@@ -54,17 +54,17 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
   return (
     <div key={genre.id} className="genre-box">
       <Link to={`./genres/${genre.id}`}>
-        <h2 className="genre-box__title">{genre.name} :</h2>
+        <h2 className="genre-box__title fz2">{genre.name} :</h2>
       </Link>
 
-      <div className="movies-box">
+      <div className="movies-box mlr2">
         <div
           className="movies-box__arrow movies-box__arrow-left movies-box__hover "
           style={{
             visibility: scrollLeft == 0 ? "collapse" : "visible",
           }}
         >
-          <button className="slide" onClick={() => slide(-1)}>
+          <button className="slide color-primary" onClick={() => slide(-1)}>
             <FontAwesomeIcon icon={faChevronLeft} size="5x" className="slide-arrow__left" />
           </button>
         </div>
@@ -79,8 +79,10 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
           {movies?.map((movie) => {
             return (
               <div key={movie.id} className="movies-box__movies-image">
-                <img src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} />
-                <h3 className="movie-title">{movie.title}</h3>
+                <Link to="./movie/:id">
+                  <img src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} />
+                  <h3 className="movie-title fz2">{movie.title}</h3>
+                </Link>
               </div>
             );
           })}
@@ -88,7 +90,7 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
 
         <div className="movies-box__arrow movies-box__arrow-right">
           <button
-            className="slide"
+            className="slide color-primary"
             onClick={async () => {
               if (scrollLeft >= scrollMax) {
                 setPage((prev) => prev + 1);

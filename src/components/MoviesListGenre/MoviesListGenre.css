@@ -4,13 +4,11 @@
 
 .genre-box__title {
   margin: 0 0 1em 1em;
-  font-size: 2em;
 }
 
 .movies-box {
   display: flex;
   flex-direction: row;
-  margin: 0 2em;
   height: 400px;
   position: relative;
 }
@@ -31,8 +29,7 @@
 }
 
 .movie-title {
-  width: 225px;
-  font-size: 2em;
+  max-width: 225px;
   margin: 0.5em;
   white-space: nowrap;
   overflow: hidden;
@@ -59,7 +56,6 @@
 
 .slide {
   background-color: transparent;
-  color: rgb(211, 210, 207);
   border: none;
   cursor: pointer;
 }

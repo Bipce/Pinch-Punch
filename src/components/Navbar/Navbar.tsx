@@ -7,23 +7,24 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <div className="navbar-search-container">
-      <nav className="navbar-container">
-        <div className="navbar-info">
+      <nav className="navbar-container bg-primary">
+        <div className="navbar-info flex-center mlr2">
           <Link to="/">
-            <FontAwesomeIcon icon={faHouse} size="2x" className="ml2" />
+            <FontAwesomeIcon icon={faHouse} size="2x" />
           </Link>
-          <h1>Pinch Punch</h1>
-          <FontAwesomeIcon icon={faUser} size="2x" className="mr2" />
+          <h1 className="navbar-info__title">Pinch Punch</h1>
+
+          <div className="search-bar flex-center">
+            <label htmlFor="serch__movie" />
+            <input id="search-bar__input" type="text" placeholder="Movie" className="btn bg-tertiary "></input>
+            <button className="btn search-bar__btn bg-tertiary color-primary">
+              <FontAwesomeIcon className="loop-icon" icon={faMagnifyingGlass} />
+            </button>
+          </div>
+
+          <FontAwesomeIcon icon={faUser} size="2x" />
         </div>
       </nav>
-
-      <div className="search-bar">
-        <label htmlFor="serch__movie" />
-        <input id="search-bar__input" type="text" placeholder="Movie" className="btn"></input>
-        <button className="btn search-bar__btn">
-          <FontAwesomeIcon className="loop-icon" icon={faMagnifyingGlass} />
-        </button>
-      </div>
     </div>
   );
 };

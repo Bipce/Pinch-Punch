@@ -4,8 +4,6 @@ import { IGenre } from "../../models/IGenre.js";
 
 import MoviesListGenre from "../MoviesListGenre/MoviesListGenre.js";
 
-import "./MovieList.css";
-
 const MovieList = () => {
   const [genres, setGenres] = useState<IGenre[]>();
 
@@ -17,7 +15,7 @@ const MovieList = () => {
 
   return (
     <>
-      <div className="home-container">
+      <div className="scroll-container">
         {genres?.map((genre) => (
           <MoviesListGenre key={genre.id} genre={genre} />
         ))}

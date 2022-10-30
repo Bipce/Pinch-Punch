@@ -5,10 +5,14 @@ import { getGenres, getMovies } from "../services/backend";
 import { IMovie } from "../models/IMovie";
 import MoviesGenre from "../components/MoviesGenre/MoviesGenre";
 
+import "../components/MoviesGenre/MoviesGenre.css";
+import { IGenre } from "../models/IGenre";
+
 const Genre = () => {
   const [movies, setMovies] = useState<IMovie[]>();
   const [genreNotFound, setGenreNotFound] = useState(false);
   const [page, setPage] = useState(1);
+  const [genre, setGenre] = useState<IGenre>();
 
   const { id } = useParams<{ id: string }>();
 
@@ -17,8 +21,8 @@ const Genre = () => {
   useEffect(() => {
     (async () => {
       const genres = await getGenres();
-
-      const genre = genres?.find((g) => g.id == parseInt(id));
+      const genre = genres.find((g) => g.id == parseInt(id));
+      setGenre(genre);
 
       if (genre) {
         setMovies(await getMovies(parseInt(id)));
@@ -28,38 +32,40 @@ const Genre = () => {
     })();
   }, []);
 
-  useEffect(() => {
-    loadNextMovies();
-  }, [page]);
+  // useEffect(() => {
+  //   loadNextMovies();
+  // }, [page]);
 
-  const loadNextMovies = async () => {
-    const genres = await getGenres();
-    genres.map(async (genre) => {
-      const res = await getMovies(genre.id, page);
+  // const loadNextMovies = async () => {
+  //   const genres = await getGenres();
+  //   genres.map(async (genre) => {
+  //     const res = await getMovies(genre.id, page);
 
-      const tmp: IMovie[] = [...(movies || []), ...res];
-      tmp.concat(res);
+  //     const tmp: IMovie[] = [...(movies || []), ...res];
+  //     tmp.concat(res);
 
-      setMovies(tmp);
-    });
-  };
+  //     setMovies(tmp);
+  //   });
+  // };
 
   if (genreNotFound) {
     return <h1>Genre not found !</h1>;
   }
 
-  if (!movies) return null;
+  if (!movies || !genre) return null;
 
   return (
     <>
-      <button
+      {/* <button
         onClick={async () => {
           setPage((prev) => prev + 1);
         }}
       >
         Click1
-      </button>
-      <MoviesGenre movies={movies} page={page} />
+      </button> */}
+      <div className="scroll-container moviesGenre-box">
+        <MoviesGenre movies={movies} genre={genre} />
+      </div>
     </>
   );
 };

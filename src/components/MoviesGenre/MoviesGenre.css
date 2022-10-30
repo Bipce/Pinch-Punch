@@ -1,10 +1,14 @@
+.moviesGenre__title {
+  margin: 0 0.5em;
+}
+
 .moviesGenre-box {
-  margin: 4em 2em 0 2em;
+  margin: 0 2em 0 2em;
   flex-wrap: wrap;
 }
 
 .moviesGenre-box__link {
-  margin: 3em 0;
+  margin: 3em 1em;
 }
 
 .moviesGenre-box__image {
