@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faUser, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faVideoCamera, faUser, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 import "./Navbar.css";
 
@@ -10,9 +10,11 @@ const Navbar = () => {
       <nav className="navbar-container bg-primary">
         <div className="navbar-info flex-center mlr2">
           <Link to="/">
-            <FontAwesomeIcon icon={faHouse} size="2x" />
+            <h1 className="navbar-info__title">
+              <FontAwesomeIcon icon={faVideoCamera} className="navbar-info__icon" />
+              Pinch Punch
+            </h1>
           </Link>
-          <h1 className="navbar-info__title">Pinch Punch</h1>
 
           <div className="search-bar flex-center">
             <label htmlFor="serch__movie" />

@@ -17,5 +17,6 @@
 }
 
 .moviesGenre-box__title {
-  margin-bottom: 0;
+  margin: 0.5em 0 0.5em;
+  max-width: 350px;
 }

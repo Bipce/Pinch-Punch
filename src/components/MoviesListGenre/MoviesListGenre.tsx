@@ -81,7 +81,7 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
               <div key={movie.id} className="movies-box__movies-image">
                 <Link to="./movie/:id">
                   <img src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} />
-                  <h3 className="movie-title fz2">{movie.title}</h3>
+                  <h3 className="movie-title ellipsis fz2">{movie.title}</h3>
                 </Link>
               </div>
             );

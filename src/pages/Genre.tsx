@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { getGenres, getMovies } from "../services/backend";
@@ -11,8 +11,8 @@ import { IGenre } from "../models/IGenre";
 const Genre = () => {
   const [movies, setMovies] = useState<IMovie[]>();
   const [genreNotFound, setGenreNotFound] = useState(false);
-  const [page, setPage] = useState(1);
   const [genre, setGenre] = useState<IGenre>();
+  const [page, setPage] = useState(1);
 
   const { id } = useParams<{ id: string }>();
 
@@ -32,38 +32,37 @@ const Genre = () => {
     })();
   }, []);
 
-  // useEffect(() => {
-  //   loadNextMovies();
-  // }, [page]);
+  useEffect(() => {
+    if (genre != null) {
+      loadNextMovies();
+    }
+  }, [page, genre]);
 
-  // const loadNextMovies = async () => {
-  //   const genres = await getGenres();
-  //   genres.map(async (genre) => {
-  //     const res = await getMovies(genre.id, page);
+  const loadNextMovies = async () => {
+    const res = await getMovies(genre!.id, page);
 
-  //     const tmp: IMovie[] = [...(movies || []), ...res];
-  //     tmp.concat(res);
+    const tmp: IMovie[] = [...(movies || []), ...res];
+    tmp.concat(res);
 
-  //     setMovies(tmp);
-  //   });
-  // };
+    setMovies(tmp);
+  };
 
   if (genreNotFound) {
-    return <h1>Genre not found !</h1>;
+    return <h1 className="not-found flex-center bg-tertiary">Genre not found !</h1>;
   }
 
   if (!movies || !genre) return null;
 
   return (
     <>
-      {/* <button
-        onClick={async () => {
-          setPage((prev) => prev + 1);
+      <div
+        className="scroll-container moviesGenre-box"
+        onScroll={(e) => {
+          if (e.currentTarget.scrollTop == e.currentTarget.scrollHeight - e.currentTarget.offsetHeight) {
+            setPage((prev) => prev + 1);
+          }
         }}
       >
-        Click1
-      </button> */}
-      <div className="scroll-container moviesGenre-box">
         <MoviesGenre movies={movies} genre={genre} />
       </div>
     </>

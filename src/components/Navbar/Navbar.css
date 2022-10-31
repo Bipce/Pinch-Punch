@@ -1,6 +1,6 @@
 .navbar-container {
   height: 85px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .navbar-info {
@@ -9,8 +9,8 @@
   align-items: center;
 }
 
-.navbar-info__title {
-  margin-left: 1em;
+.navbar-info__icon {
+  margin-right: 0.5em;
 }
 
 .search-bar {

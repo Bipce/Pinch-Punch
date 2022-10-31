@@ -37,7 +37,7 @@ img {
 
 .scroll-container {
   overflow-y: auto;
-  height: calc(100vh - 135px - 50px);
+  height: calc(100vh - 115px - 35px);
 }
 
 .bg-primary {
@@ -73,4 +73,17 @@ img {
 
 .fz2 {
   font-size: 2em;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.not-found {
+  margin: 0;
+  text-align: center;
+  height: calc(100vh - 115px - 35px);
+  font-size: 5em;
 }

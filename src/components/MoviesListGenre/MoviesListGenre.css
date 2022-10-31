@@ -31,9 +31,6 @@
 .movie-title {
   max-width: 225px;
   margin: 0.5em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .movies-box__line {
