@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { IGenre } from "../../models/IGenre";
-import { IMovie } from "../../models/IMovie";
+import { IGenre } from "../../models/Genre/IGenre";
+import { IMovie } from "../../models/Movie(s)/IMovie";
 import { getMovies } from "../../services/backend";
 
 import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
@@ -53,7 +53,7 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
 
   return (
     <div key={genre.id} className="genre-box">
-      <Link to={`./genres/${genre.id}`}>
+      <Link to={`/genres/${genre.id}`}>
         <h2 className="genre-box__title fz2">{genre.name} :</h2>
       </Link>
 
@@ -79,8 +79,8 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
           {movies?.map((movie) => {
             return (
               <div key={movie.id} className="movies-box__movies-image">
-                <Link to="./movie/:id">
-                  <img src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} />
+                <Link to={`/movie/${movie.id}`}>
+                  <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
                   <h3 className="movie-title ellipsis fz2">{movie.title}</h3>
                 </Link>
               </div>

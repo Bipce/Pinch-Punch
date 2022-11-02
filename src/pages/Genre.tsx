@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { getGenres, getMovies } from "../services/backend";
-import { IMovie } from "../models/IMovie";
+import { IMovie } from "../models/Movie(s)/IMovie";
 import MoviesGenre from "../components/MoviesGenre/MoviesGenre";
 
 import "../components/MoviesGenre/MoviesGenre.css";
-import { IGenre } from "../models/IGenre";
+import { IGenre } from "../models/Genre/IGenre";
 
 const Genre = () => {
   const [movies, setMovies] = useState<IMovie[]>();
