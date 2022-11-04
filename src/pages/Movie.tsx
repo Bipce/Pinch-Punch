@@ -8,8 +8,8 @@ import { getMovie, getCredits } from "../services/backend";
 
 const Movie = () => {
   const [movie, setMovie] = useState<IMovie>();
-  const [cast, setCast] = useState<ICast>();
-  // const [crew, setCrew] = useState<ICrew>();
+  const [cast, setCast] = useState<ICast[]>();
+  const [crew, setCrew] = useState<ICrew[]>();
 
   const { id } = useParams<{ id: string }>();
 
@@ -17,22 +17,19 @@ const Movie = () => {
 
   useEffect(() => {
     (async () => {
-      const credits = getCredits(parseInt(id));
+      const credits = await getCredits(parseInt(id));
       setMovie(await getMovie(parseInt(id)));
 
       if (credits) {
         setCast(credits.cast);
+        setCrew(credits.crew);
       }
     })();
   }, []);
 
-  useEffect(() => {
-    (async () => {})();
-  });
+  if (!movie || !cast || !crew) return null;
 
-  if (!movie || cast) return null;
-
-  return <MovieDetails movie={movie} />;
+  return <MovieDetails movie={movie} cast={cast} crew={crew} />;
 };
 
 export default Movie;

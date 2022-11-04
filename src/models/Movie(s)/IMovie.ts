@@ -6,8 +6,8 @@ export interface IMovie {
   poster_path: string;
   genre_ids?: number[];
   video?: boolean;
-  overwiew?: string;
-  release_date?: Date;
+  overview?: string;
+  release_date?: string;
   vote_average?: number;
   production_companies?: [];
   genres: IGenre[];

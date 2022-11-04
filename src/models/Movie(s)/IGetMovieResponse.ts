@@ -5,7 +5,7 @@ export interface IGetMovieResponse {
   title: string;
   poster_path: string;
   overwiew: string;
-  release_date: Date;
+  release_date: string;
   vote_average: number;
   genres: IGenre[];
 }

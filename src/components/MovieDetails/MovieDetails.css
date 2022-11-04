@@ -1,0 +1,81 @@
+.movie-details__title {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.movie-details--box {
+  height: 700px;
+  padding: 5em;
+}
+
+.movie-details--box__img {
+  margin-right: 4em;
+  width: 480px;
+  height: 700px;
+}
+
+.movie-details--box__info {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.movie-details--box__info > p {
+  margin-top: 0;
+}
+
+.movie-details--box__genres,
+.movie-details--box__cast {
+  line-height: 0.5;
+}
+
+.synopsis-cast--box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2em;
+  padding: 2em;
+  width: 890px;
+}
+
+.sysnopsis {
+  line-height: 1.5;
+}
+
+.synopsis--box__title,
+.casting--box__title {
+  margin: 0;
+}
+
+.casting--box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.casting--box__actors {
+  flex-direction: column;
+  margin-right: 2em;
+  width: 155px;
+}
+
+.casting--box__actors p {
+  margin: 0;
+}
+
+.casting--box__img {
+  width: 155px;
+  margin-top: 1.5em;
+  margin-bottom: 0.2em;
+}
+
+.height {
+  height: 233px;
+}
+
+.casting--box__actors-role {
+  font-size: 1.5em;
+}
+
+.margin {
+  margin: 0 5em;
+}

@@ -61,6 +61,10 @@ img {
   padding: 1.2em;
 }
 
+.flex {
+  display: flex;
+}
+
 .flex-center {
   display: flex;
   align-items: center;
@@ -86,4 +90,8 @@ img {
   text-align: center;
   height: calc(100vh - 115px - 35px);
   font-size: 5em;
+}
+
+.bold {
+  font-weight: bold;
 }
