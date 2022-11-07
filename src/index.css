@@ -31,6 +31,10 @@ img {
   object-fit: cover;
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   height: 100vh;
 }
@@ -94,4 +98,12 @@ img {
 
 .bold {
   font-weight: bold;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.hover:hover {
+  color: rgba(211, 210, 207, 0.604);
 }

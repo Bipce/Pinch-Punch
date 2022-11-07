@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer/Footer";
 import Genre from "./pages/Genre";
 import Movie from "./pages/Movie";
+import Casting from "./pages/Casting";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/genres/:id" element={<Genre />} />
           <Route path="/movie/:id" element={<Movie />} />
+          <Route path="/movie/:id/casting" element={<Casting />} />
         </Routes>
         <Footer />
       </Router>

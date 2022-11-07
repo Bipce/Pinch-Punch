@@ -1,0 +1,59 @@
+.title-anchors {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.anchor-list {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 1em;
+  top: 0.4em;
+  padding: 0;
+  width: 200px;
+  text-align: center;
+}
+
+.anchor-list li {
+  margin: 0 0.5em;
+  width: 50%;
+}
+
+.anchor-list li:hover {
+  border-bottom: 1px solid rgb(211, 210, 207);
+}
+
+.casting--details__title {
+  margin-left: 0.8em;
+}
+
+.casting--box.details {
+  border-bottom: 1px solid rgb(211, 210, 207);
+}
+
+.casting--box__actors.details {
+  margin: 0 1.5em 1.5em;
+}
+
+.casting--box__actors.details,
+.casting--box__img.details,
+.casting--box__img.height.details {
+  width: 210px;
+}
+
+.casting--box__img.height.details {
+  height: 315px;
+}
+
+.casting--icon {
+  text-align: right;
+  margin: 2em;
+}
+
+.up-button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  margin: 1em 2em;
+}

@@ -4,6 +4,7 @@ import { IMovie } from "../../models/Movie(s)/IMovie";
 
 import notFound from "../../assets/notFound.webp";
 import "./MovieDetails.css";
+import { Link } from "react-router-dom";
 
 interface IProps {
   movie: IMovie;
@@ -44,9 +45,16 @@ const MovieDetails: React.FC<IProps> = ({ movie, cast, crew }) => {
             {crew.map((crew) => {
               if (crew.job == "Director") {
                 return (
-                  <p key={crew.job}>
-                    <span className="bold">Director :</span> {crew.name}
-                  </p>
+                  <div key={crew.job} className="casting--box__director">
+                    <p>
+                      <span className="bold">Director :</span> {crew.name}
+                    </p>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${crew.profile_path}`}
+                      alt={crew.name}
+                      className="casting--box__img"
+                    />
+                  </div>
                 );
               }
             })}
@@ -56,7 +64,7 @@ const MovieDetails: React.FC<IProps> = ({ movie, cast, crew }) => {
               </p>
               {cast.map((cast, i) => {
                 if (i < 5) {
-                  return <p key={cast.cast_id}>{cast.name}</p>;
+                  return <p key={cast.id}>{cast.name}</p>;
                 }
               })}
             </div>
@@ -72,12 +80,14 @@ const MovieDetails: React.FC<IProps> = ({ movie, cast, crew }) => {
           </div>
 
           <div className="cast--box">
-            <h2 className="casting--box__title fz2">Casting: </h2>
+            <Link to={`/movie/${movie.id}/casting`}>
+              <h2 className="casting--box__title fz2 hover">Casting : </h2>
+            </Link>
             <div className="casting--box">
               {cast.map((cast, i) => {
                 if (i < 10) {
                   return (
-                    <div key={cast.cast_id} className="flex casting--box__actors">
+                    <div key={cast.id} className="flex casting--box__actors">
                       {cast.profile_path ? (
                         <img
                           src={`https://image.tmdb.org/t/p/w500/${cast.profile_path}`}

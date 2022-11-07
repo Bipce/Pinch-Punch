@@ -68,6 +68,15 @@
   margin-bottom: 0.2em;
 }
 
+.casting--box__director .casting--box__img {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.casting--box__director p {
+  margin-bottom: 0.5em;
+}
+
 .height {
   height: 233px;
 }
