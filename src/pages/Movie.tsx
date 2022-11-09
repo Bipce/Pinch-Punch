@@ -1,12 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+import { MovieContext } from "../contexts/MovieContext";
+import { getMovie, getCredits } from "../services/backend";
 import MovieDetails from "../components/MovieDetails/MovieDetails";
+
 import { ICast } from "../models/Credits/ICast";
 import { ICrew } from "../models/Credits/ICrew";
 import { IMovie } from "../models/Movie(s)/IMovie";
-import { getMovie, getCredits } from "../services/backend";
 
 const Movie = () => {
+  const movieContext = useContext(MovieContext);
+
   const [movie, setMovie] = useState<IMovie>();
   const [cast, setCast] = useState<ICast[]>();
   const [crew, setCrew] = useState<ICrew[]>();
