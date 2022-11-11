@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { IGenre } from "../../models/Genre/IGenre";
 import { IMovie } from "../../models/Movie(s)/IMovie";
-import { getMovies } from "../../services/backend";
 
 import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,10 +10,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface IProps {
   genre: IGenre;
+  movies: IMovie[];
+  onScrollMax: (genre: IGenre) => void;
 }
 
-const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
-  const [movies, setMovies] = useState<IMovie[] | null>(null);
+const MoviesListGenre: React.FC<IProps> = ({ genre, movies, onScrollMax }) => {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollMax, setScrollMax] = useState(0);
   const [page, setPage] = useState(1);
@@ -31,9 +31,9 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
     }
   }, [slideElement.current, movies]);
 
-  useEffect(() => {
-    loadNextMovies();
-  }, [page]);
+  // useEffect(() => {
+  //   loadNextMovies();
+  // }, [page]);
 
   const slide = (delta: number) => {
     slideElement.current?.scrollTo({
@@ -42,14 +42,14 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
     });
   };
 
-  const loadNextMovies = async () => {
-    const res = await getMovies(genre.id, page);
+  // const loadNextMovies = async () => {
+  //   const res = await getMovies(genre.id, page);
 
-    const tmp: IMovie[] = [...(movies || []), ...res];
-    tmp.concat(res);
+  //   const tmp: IMovie[] = [...(movies || []), ...res];
+  //   tmp.concat(res);
 
-    setMovies(tmp);
-  };
+  //   setMovies(tmp);
+  // };
 
   return (
     <div key={genre.id} className="genre-box">
@@ -93,7 +93,8 @@ const MoviesListGenre: React.FC<IProps> = ({ genre }) => {
             className="slide color-primary"
             onClick={async () => {
               if (scrollLeft >= scrollMax) {
-                setPage((prev) => prev + 1);
+                onScrollMax(genre);
+                // setPage((prev) => prev + 1);
               } else {
                 slide(1);
               }

@@ -10,8 +10,6 @@ import { ICrew } from "../models/Credits/ICrew";
 import { IMovie } from "../models/Movie(s)/IMovie";
 
 const Movie = () => {
-  const movieContext = useContext(MovieContext);
-
   const [movie, setMovie] = useState<IMovie>();
   const [cast, setCast] = useState<ICast[]>();
   const [crew, setCrew] = useState<ICrew[]>();
