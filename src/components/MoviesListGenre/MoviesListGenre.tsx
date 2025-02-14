@@ -31,25 +31,12 @@ const MoviesListGenre: React.FC<IProps> = ({ genre, movies, onScrollMax }) => {
     }
   }, [slideElement.current, movies]);
 
-  // useEffect(() => {
-  //   loadNextMovies();
-  // }, [page]);
-
   const slide = (delta: number) => {
     slideElement.current?.scrollTo({
       behavior: "smooth",
       left: slideElement.current.scrollLeft + slideElement.current.offsetWidth * delta,
     });
   };
-
-  // const loadNextMovies = async () => {
-  //   const res = await getMovies(genre.id, page);
-
-  //   const tmp: IMovie[] = [...(movies || []), ...res];
-  //   tmp.concat(res);
-
-  //   setMovies(tmp);
-  // };
 
   return (
     <div key={genre.id} className="genre-box">
